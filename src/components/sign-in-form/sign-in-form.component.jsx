@@ -7,7 +7,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_STYLES } from "../button/button.component";
 
 import "./sign-in-form.styles.scss";
 
@@ -38,7 +38,7 @@ const SignInForm = () => {
         password
       );
 
-      console.log("sign-in-form" ,user);
+      console.log("sign-in-form", user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -87,7 +87,11 @@ const SignInForm = () => {
 
         <div className='buttons-group'>
           <Button type='submit'>Sign In</Button>
-          <Button buttonType='google' type='button' onClick={logGoogleUser}>
+          <Button
+            buttonType={BUTTON_TYPE_STYLES.google}
+            type='button'
+            onClick={logGoogleUser}
+          >
             Sign In With Google
           </Button>
         </div>
